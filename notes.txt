@@ -1,9 +1,0 @@
-<!-- HTML Follows BEM naming conventions 
-  IDs are only used for sections to connect menu achors to sections -->
-
-    <!-- Navigation starts as empty UL that will be populated with JS -->
-
-    <!-- Each Section has an ID (used for the anchor) and 
-    a data attribute that will populate the li node.
-    Adding more sections will automatically populate nav.
-    The first section is set to active class by default -->
