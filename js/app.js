@@ -2,12 +2,14 @@ const navUl = document.querySelector('#navbar__list');
 
 function renderLi(){
 for (let i =1; i<5 ; i++){
-   navUl.innerHTML += `<li>Section ${i}  </li>` ;
+   navUl.innerHTML += `<a href="#" class="menu__link"> <li> Section ${i} </li> </a>`;
 }
 return navUl;
 }
 
 renderLi();
+
+
 
 
 
