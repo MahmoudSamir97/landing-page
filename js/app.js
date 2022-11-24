@@ -2,6 +2,8 @@ const ul = document.querySelector('#navbar__list');
 const sections = document.querySelectorAll("[data-nav]");
 const fragment = document.createDocumentFragment();
 
+// create dynamic nav bar 
+
  sections.forEach(function (section){
    const sectionId = section.getAttribute('id');
    const sectionTitle = section.getAttribute('data-nav');
@@ -12,8 +14,7 @@ const fragment = document.createDocumentFragment();
    anchorTag.href= `#${sectionId}`;
    anchorTag.addEventListener('click', function(e){
       e.preventDefault();
-      section.scrollIntoView({
-         behavior:'smooth'});
+      section.scrollIntoView({behavior:'smooth'});    /* the method for smooth scrolling */
    })
 
    li.appendChild(anchorTag);
@@ -23,14 +24,16 @@ const fragment = document.createDocumentFragment();
 ul.appendChild(fragment);
 
 
-
+//  the second argument of call back function of observer constructor
 const options = {
 root: null,
 rootMargin: '0px',
 threshold: 0.70
 };
+
 const observer = new IntersectionObserver((entries) => {
    const links = document.querySelectorAll('a');
+   
    if (entries[0].isIntersecting){
       entries[0].target.classList.add('your-active-class');
 // related to links
@@ -50,7 +53,7 @@ const observer = new IntersectionObserver((entries) => {
 }, options); 
 
 
-
+// observe  individual sction when scrolling
 window.addEventListener('scroll', () => {
    for (let section of sections){
 
@@ -59,6 +62,8 @@ window.addEventListener('scroll', () => {
 
    }
 })
+
+// testing performance 
 
 console.log(performance.now());
 
@@ -90,63 +95,3 @@ console.log(performance.now());
 
 
 
-/**
- * 
- * Manipulating the DOM exercise.
- * Exercise programmatically builds navigation,
- * scrolls to anchors from navigation,
- * and highlights section in viewport upon scrolling.
- * 
- * Dependencies: None
- * 
- * JS Version: ES2015/ES6
- * 
- * JS Standard: ESlint
- * 
-*/
-
-/**
- * Comments should be present at the beginning of each procedure and class.
- * Great to have comments before crucial code sections within the procedure.
-*/
-
-/**
- * Define Global Variables
- * 
-*/
-
-
-/**
- * End Global Variables
- * Start Helper Functions
- * 
-*/
-
-
-
-/**
- * End Helper Functions
- * Begin Main Functions
- * 
-*/
-
-// build the nav
-
-
-// Add class 'active' to section when near top of viewport
-
-
-// Scroll to anchor ID using scrollTO event
-
-
-/**
- * End Main Functions
- * Begin Events
- * 
-*/
-
-// Build menu 
-
-// Scroll to section on link click
-
-// Set sections as active
