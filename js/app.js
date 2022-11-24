@@ -1,13 +1,35 @@
-const navUl = document.querySelector('#navbar__list');
+const ul = document.querySelector('#navbar__list');
+const sections = document.querySelectorAll("[data-nav]");
+const fragment = document.createDocumentFragment();
 
-function renderLi(){
-for (let i =1; i<5 ; i++){
-   navUl.innerHTML += `<a href="#" class="menu__link"> <li> Section ${i} </li> </a>`;
-}
-return navUl;
-}
+ sections.forEach(function (section){
+   const sectionId = section.getAttribute('id');
+   const sectionTitle = section.getAttribute('data-nav');
+   const li = document.createElement('li');
+   const anchorTag = document.createElement('a');
+   anchorTag.classList.add('menu__link');
+   anchorTag.textContent = sectionTitle;
+   anchorTag.href= `#${sectionId}`;
+   anchorTag.addEventListener('click', function(){
+      section.scrollIntoView();
+   })
 
-renderLi();
+   li.appendChild(anchorTag);
+   fragment.appendChild(li);
+})
+
+ul.appendChild(fragment);
+
+
+
+
+
+
+
+
+
+
+
 
 
 
