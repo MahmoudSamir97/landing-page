@@ -18,6 +18,7 @@ const fragment = document.createDocumentFragment();
 
    li.appendChild(anchorTag);
    fragment.appendChild(li);
+   fragment.insertAdjac
 })
 ul.appendChild(fragment);
 
@@ -34,7 +35,6 @@ const observer = new IntersectionObserver((entries) => {
       entries[0].target.classList.add('your-active-class');
 // related to links
       links.forEach(link => {
-         console.log(link);
          if (link.textContent === entries[0].target.dataset.nav){
             link.classList.add('active');
          } else {
@@ -46,12 +46,7 @@ const observer = new IntersectionObserver((entries) => {
 // related to links
 
 
-   } else {
-
-      entries[0].target.classList.remove('your-active-class');
-
-
-   }
+   } else { entries[0].target.classList.remove('your-active-class');}
 }, options); 
 
 
@@ -64,6 +59,8 @@ window.addEventListener('scroll', () => {
 
    }
 })
+
+console.log(performance.now());
 
 
 
