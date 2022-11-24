@@ -10,8 +10,10 @@ const fragment = document.createDocumentFragment();
    anchorTag.classList.add('menu__link');
    anchorTag.textContent = sectionTitle;
    anchorTag.href= `#${sectionId}`;
-   anchorTag.addEventListener('click', function(){
-      section.scrollIntoView();
+   anchorTag.addEventListener('click', function(e){
+      e.preventDefault();
+      section.scrollIntoView({
+         behavior:'smooth'});
    })
 
    li.appendChild(anchorTag);
