@@ -19,8 +19,56 @@ const fragment = document.createDocumentFragment();
    li.appendChild(anchorTag);
    fragment.appendChild(li);
 })
-
 ul.appendChild(fragment);
+
+
+
+const options = {
+root: null,
+rootMargin: '0px',
+threshold: 0.70
+};
+const observer = new IntersectionObserver((entries) => {
+   const links = document.querySelectorAll('a');
+   if (entries[0].isIntersecting){
+      entries[0].target.classList.add('your-active-class');
+// related to links
+      links.forEach(link => {
+         console.log(link);
+         if (link.textContent === entries[0].target.dataset.nav){
+            link.classList.add('active');
+         } else {
+            link.classList.remove('active');
+
+         }
+      })
+
+// related to links
+
+
+   } else {
+
+      entries[0].target.classList.remove('your-active-class');
+
+
+   }
+}, options); 
+
+
+
+window.addEventListener('scroll', () => {
+   for (let section of sections){
+
+      observer.observe(section);
+
+
+   }
+})
+
+
+
+
+
 
 
 
